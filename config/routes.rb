@@ -11,7 +11,7 @@ Rails.application.routes.draw do
  	end
 
  	devise_for :users do
- 		get "logout" => "devise/sessions#new"
+ 		get "logout" => "devise/session#destroy"
  	end
 
 	match '/auth/:provider/callback', to: 'authentications#create', via: [:get, :post]
