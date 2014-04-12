@@ -25,7 +25,7 @@
                 </li>
                 <li class="page-scroll">
                     <% if current_user %>
-                         <%= link_to "Logout", signout_path, id: "sign_out" %>
+                         <%= link_to "Logout", destroy_user_session_path, method: 'delete', id: "sign_out" %>
                     <% else %>
                         <%= link_to "Login", "/auth/facebook", id: "sign_in" %>
                     <% end %>

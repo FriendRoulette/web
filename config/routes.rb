@@ -10,13 +10,14 @@ Rails.application.routes.draw do
  		end
  	end
 
- 	devise_for :users
+ 	devise_for :users do
+ 		get "logout" => "devise/session#destroy"
+ 	end
 
-	match '/auth/:provider/callback', to: 'authentications#create', as: 'login', via: [:get, :post]
+	match '/auth/:provider/callback', to: 'authentications#create', via: [:get, :post]
 	match 'auth/failure', to: redirect('/'), via: [:get, :post]
 
 	match 'welcome', to: 'pages#welcome', as: 'welcome', via: [:get]
-	match 'logout', to: 'sessions#destroy', as: 'logout', via: [:get, :post]
 
 	root to: 'pages#home'
   	match '/',        to: 'pages#home', as: 'home', via: [:get]
