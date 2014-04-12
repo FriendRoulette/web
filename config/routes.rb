@@ -16,7 +16,7 @@ Rails.application.routes.draw do
 	match 'auth/failure', to: redirect('/'), via: [:get, :post]
 
 	match 'welcome', to: 'pages#welcome', as: 'welcome', via: [:get]
-	match 'logout', to: 'sessions#destroy', as: 'logout', via: [:get, :post]
+	match 'logout', to: destroy_user_session_path, as: 'logout', via: [:get, :post]
 
 	root to: 'pages#home'
 end
