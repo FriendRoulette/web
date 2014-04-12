@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>FriendRoulette</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+	<head>
+	  <title>FriendRoulette</title>
+	  <%= render partial: 'stylesheets' %>
+	  <%= render partial: 'meta' %>
+	</head>
+	<body>
 
-<%= yield %>
+		<%= yield %>
 
-</body>
+		<%= render partial: 'javascripts' %>
+	</body>
 </html>
