@@ -19,4 +19,5 @@ Rails.application.routes.draw do
 	match 'logout', to: 'sessions#destroy', as: 'logout', via: [:get, :post]
 
 	root to: 'pages#home'
+  	match '/',        to: 'pages#home', as: 'home', via: [:get]
 end
