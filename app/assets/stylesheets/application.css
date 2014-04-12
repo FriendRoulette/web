@@ -261,9 +261,7 @@ a:focus {
 .download-section {
     width: 100%;
     padding: 50px 0;
-    color: #fff;
-    background: url(../img/downloads-bg.jpg) no-repeat center center scroll;
-    background-color: #000;
+    background-color: #f5f5f5;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     background-size: cover;
@@ -357,10 +355,47 @@ img::selection {
     background: 0 0;
 }
 
+.banner {
+    padding: 100px 0;
+    color: #f8f8f8;
+    background: url('mouse.jpg') no-repeat center center;
+    background-size: cover;
+}
+
+.banner h2 {
+    margin: 0;
+    text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.6);
+    font-size: 3em;
+}
+
+.banner ul {
+    margin-bottom: 0;
+}
+
+.banner-social-buttons {
+    float: right;
+    margin-top: 0;
+}
+
 img::-moz-selection {
     background: 0 0;
 }
 
 body {
     webkit-tap-highlight-color: rgba(255,255,255,.2);
+}
+
+footer {
+    background-color: #f8f8f8;
+    padding: 50px 0;
+}
+
+p.copyright {
+    margin: 15px 0 0;
+}
+
+.intro-divider {
+    width: 400px;
+    border-top: 1px solid #f8f8f8;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 }
