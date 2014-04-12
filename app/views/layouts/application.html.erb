@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+<<<<<<< HEAD
 <head>
   <title>FriendRoulette</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
@@ -16,6 +17,20 @@
   <% end %>
 </div>
 <%= yield %>
+=======
+	<head>
+	  <title>FriendRoulette</title>
+	  <%= render partial: 'stylesheets' %>
+	  <%= render partial: 'meta' %>
+	</head>
+	<body>
+		<%= render partial: 'header' %>
 
-</body>
+		<%= yield %>
+>>>>>>> f5c820271cf449c1b417f6019aa777c8765338a9
+
+		<%= render partial: 'footer' %>
+
+		<%= render partial: 'javascripts' %>
+	</body>
 </html>

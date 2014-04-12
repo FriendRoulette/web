@@ -1,0 +1,85 @@
+<section class="intro">
+        <div class="intro-body">
+            <div class="background-shade">
+                <h1 class="brand-heading">
+                    <span class="light">Friend</span> Roulette
+                </h1>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 col-md-offset-2">
+                        
+                        <p class="intro-text">Make new friends and reconnect with old ones. </p>
+                        <div class="page-scroll">
+                            <a href="#about" class="btn btn-circle">
+                                <i class="fa fa-angle-double-down animated"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="container content-section text-center">
+        <div class="row">
+                <div class="col-lg-5 col-lg-offset-1 col-sm-push-6 col-sm-6">
+                    <hr class="section-heading-spacer">
+                    <div class="clearfix"></div>
+                    <h2 class="section-heading">About FriendRoulette</h2>
+                    <p class="lead">Make new friends and reconnect with old ones. We all have Facebook friends who we rarely talk to but would like to get to know. FriendRoulette lets us do just that.</p>
+                </div>
+                <div class="col-lg-5 col-sm-pull-6  col-sm-6">
+                    <%= image_tag 'photo.jpg', class: 'img-responsive' %>
+                </div>
+            </div>
+    </section>
+
+    <section id="download" class="content-section text-center">
+        <div class="download-section">
+            <div class="container">
+                <div class="col-lg-5 col-sm-6" align="center"> 
+                    <hr class="section-heading-spacer">
+                    <div class="clearfix"></div>
+
+                    <h2>Download FriendRoulette</h2>
+                    <p>You can download FriendRoulette for FREE on the Apple App Store or the Google Play store.</p>
+                    <%= link_to 'Play Store', '#', class: 'btn btn-default btn-lg' %>
+                    <%= link_to 'App Store', '#', class: 'btn btn-default btn-lg' %>
+                </div>
+
+                <div class="col-lg-5 col-lg-offset-2 col-sm-6">
+                    <%= image_tag 'bag.jpg', class: 'img-responsive' %>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="banner">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <h2>Connect with Us</h2>
+                </div>
+                <div class="col-lg-6">
+                    <ul class="list-inline banner-social-buttons">
+                        <li>
+                            <%= link_to '#', class: 'btn btn-default btn-lg' do %>
+                                <i class="fa fa-twitter fa-fw"></i> <span class="network-name">Twitter</span>
+                            <% end %>
+                        </li>
+                        <li>
+                            <%= link_to '#', class: 'btn btn-default btn-lg' do %>
+                                <i class="fa fa-github fa-fw"></i> <span class="network-name">GitHub</span>
+                            <% end %>
+                        </li>
+                        <li>
+                            <%= link_to '#', class: 'btn btn-default btn-lg' do %>
+                                <i class="fa fa-linkedin fa-fw"></i> <span class="network-name">LinkedIn</span>
+                            <% end %>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
