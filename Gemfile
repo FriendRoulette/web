@@ -19,6 +19,10 @@ group :development do
 	gem 'spring'
 	gem 'sqlite3'
 	gem 'better_errors'
+
+	platforms :mswin do
+		gem 'tzinfo-data'
+	end
 end
 
 group :production do
@@ -26,10 +30,6 @@ group :production do
 
 	platforms :ruby do
 		gem 'unicorn-rails'
-	end
-
-	platforms :mswin do
-		gem 'tzinfo-data'
 	end
 	
 	gem 'newrelic_rpm'
