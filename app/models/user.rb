@@ -21,5 +21,11 @@ class User < ActiveRecord::Base
     self.email = auth['extra']['raw_info']['email']
     # Again, saving token is optional. If you haven't created the column in authentications table, this will fail
     authentications << Authentication.new(:user_id => self.id, :provider => auth['provider'], :uid => auth['uid'], :token => auth['credentials']['token'])
+  
+    authentication = authentications.first
+
+    self.provider = authentication.provider
+    self.uid = authentication.uid
+    self.oauth_token = authentication.token
   end
 end
