@@ -15,8 +15,6 @@ Rails.application.routes.draw do
  		get "logout" => "devise/session#destroy"
  	end
 
- 	
-
 	match '/auth/:provider/callback', to: 'authentications#create', via: [:get, :post]
 	match 'auth/failure', to: redirect('/'), via: [:get, :post]
 
