@@ -8,6 +8,7 @@ class AuthenticationsController < ApplicationController
 		if authentication
 		    # Authentication found, sign the user in.
 		    flash[:notice] = "Signed in successfully."
+		    puts "Signed in successfully."
 		    sign_in_and_redirect(:user, authentication.user)
 	    else
 		    # Authentication not found, thus a new user.
@@ -16,9 +17,11 @@ class AuthenticationsController < ApplicationController
 
 		    if user.save(:validate => false)
 		    	flash[:notice] = "Account created and signed in successfully."
+		    	puts "Account created and signed in successfully."
 		    	sign_in_and_redirect(:user, user)
 		    else
 		    	flash[:error] = "Error while creating a user account. Please try again."
+		    	puts "Error while creating a user account."
 		    	redirect_to root_url
 		    end
 		end
