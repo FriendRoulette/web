@@ -23,6 +23,13 @@
                 <li class="page-scroll">
                     <a href="#contact">Contact</a>
                 </li>
+                <li class="page-scroll">
+                    <% if current_user %>
+                         <%= link_to "Logout", signout_path, id: "sign_out" %>
+                    <% else %>
+                        <%= link_to "Login", "/auth/facebook", id: "sign_in" %>
+                    <% end %>
+                </li>
             </ul>
         </div>
     </div>

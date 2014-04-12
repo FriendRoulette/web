@@ -23,8 +23,11 @@ end
 
 group :production do
 	gem 'pg'
-	gem 'unicorn-rails'
 
+	platforms :ruby do
+		gem 'unicorn-rails'
+	end
+	
 	gem 'newrelic_rpm'
   	gem 'rails_12factor'
 end

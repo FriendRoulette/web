@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-<<<<<<< HEAD
 <head>
   <title>FriendRoulette</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
@@ -8,16 +7,6 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<div id="user-widget">
-  <% if current_user %>
-    Welcome <strong><%= current_user.name %></strong>!
-    <%= link_to "Sign out", signout_path, id: "sign_out" %>
-  <% else %>
-    <%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in" %>
-  <% end %>
-</div>
-<%= yield %>
-=======
 	<head>
 	  <title>FriendRoulette</title>
 	  <%= render partial: 'stylesheets' %>
@@ -27,10 +16,8 @@
 		<%= render partial: 'header' %>
 
 		<%= yield %>
->>>>>>> f5c820271cf449c1b417f6019aa777c8765338a9
 
 		<%= render partial: 'footer' %>
-
 		<%= render partial: 'javascripts' %>
 	</body>
 </html>
