@@ -21,4 +21,5 @@ Rails.application.routes.draw do
 
 	root to: 'pages#home'
 	match '/',  to: 'pages#home', as: 'home', via: [:get]
+	resources :users
 end

@@ -1,0 +1,10 @@
+<section class="intro">
+    <div class="intro-body">
+		<p id="notice"><%= notice %></p>
+		<p><%= @user.name %></p>
+		<p><%= @user.provider %></p>		
+
+		<%= link_to 'Edit', edit_user_path(@user) %> |
+		<%= link_to 'Back', users_path %>
+	</div>
+</section>
