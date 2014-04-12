@@ -7,6 +7,9 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.0.0'
 gem 'jquery-rails'
 
+gem 'omniauth'
+gem 'omniauth-facebook'
+
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 
