@@ -2,7 +2,7 @@ Rails.application.routes.draw do
  	root to: 'pages#home'
 
  	namespace :api, path: '/', constraints: { subdomain: 'api' }, default: { format: 'json' } do
- 		#resources :accounts
+ 		resources :accounts
  	end
 
 	match 'auth/:provider/callback', to: 'sessions#create', via: [:get, :post]
