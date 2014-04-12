@@ -20,4 +20,5 @@ Rails.application.routes.draw do
 	match 'welcome', to: 'pages#welcome', as: 'welcome', via: [:get]
 
 	root to: 'pages#home'
+  	match '/',        to: 'pages#home', as: 'home', via: [:get]
 end
