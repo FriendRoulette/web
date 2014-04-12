@@ -9,6 +9,8 @@ gem 'jquery-rails'
 
 gem 'omniauth'
 gem 'omniauth-facebook'
+gem 'oauth2'
+gem 'devise'
 
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
