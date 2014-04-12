@@ -21,10 +21,16 @@ group :development do
 	gem 'spring'
 	gem 'sqlite3'
 	gem 'better_errors'
+	gem 'rspec-rails'
 
 	platforms :mswin do
 		gem 'tzinfo-data'
 	end
+end
+
+group :test do
+	gem 'selenium-webdriver'
+	gem 'capybara'
 end
 
 group :production do
