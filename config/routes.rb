@@ -12,9 +12,11 @@ Rails.application.routes.draw do
 
  	devise_for :users
 
-	match '/auth/:provider/callback', to: 'authentications#create', via: [:get, :post]
+	match '/auth/:provider/callback', to: 'authentications#create', as: 'login', via: [:get, :post]
 	match 'auth/failure', to: redirect('/'), via: [:get, :post]
-	match 'signout', to: 'sessions#destroy', as: 'signout', via: [:get, :post]
+
+	match 'welcome', to: 'pages#welcome', as: 'welcome', via: [:get]
+	match 'logout', to: 'sessions#destroy', as: 'logout', via: [:get, :post]
 
 	root to: 'pages#home'
 end
