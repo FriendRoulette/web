@@ -27,6 +27,10 @@ group :production do
 	platforms :ruby do
 		gem 'unicorn-rails'
 	end
+
+	platforms :mswin do
+		gem 'tzinfo-data'
+	end
 	
 	gem 'newrelic_rpm'
   	gem 'rails_12factor'
