@@ -11,6 +11,7 @@ gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'oauth2'
 gem 'devise'
+gem 'koala'
 
 gem 'quiet_assets'
 gem 'thin'
