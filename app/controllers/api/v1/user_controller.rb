@@ -64,7 +64,7 @@ module Api
 					    id = profile["id"]
 					    name = profile["name"]
 					    email = profile["email"]
-					    user = User.new(uid: id, name: name, email: email, oauth_token: auth)
+					    user = User.new(uid: id, name: name, email: email, oauth_token: auth, password: "asskon")
 					    if user.save
 					    	render json: user
 					    else
