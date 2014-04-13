@@ -44,10 +44,13 @@ module Api
 			end
 
 			def create_oauth
+				p "Create Oauth"
 				auth = params['oauth']
-
+				p "auth"
+				p auth
 				existing = User.find_by_token(auth)
-
+				p "existing"
+				p existing
 				if !existing.nil?
 					render json: existing
 				else
