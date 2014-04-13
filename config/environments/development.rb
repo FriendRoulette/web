@@ -34,4 +34,7 @@ Rails.application.configure do
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
+
+  ENV['FACEBOOK_APP_ID'] = "229792727217503";
+  ENV['FACEBOOK_SECRET'] = "cecb734ba75df3528ce5d3dd60e7f3ba";
 end
