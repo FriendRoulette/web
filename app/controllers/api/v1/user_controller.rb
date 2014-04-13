@@ -37,8 +37,8 @@ module Api
 				@user = User.new(user_params)
 				p "IN USER CREATE"
 				p @user
-				p @user["subdomain"]
-				if (@user["subdomain"] == "api")
+				p @user["id"]
+				# if (@user["subdomain"] == "api")
 					p "Create Oauth"
 					auth = params['oauth']
 					p "auth"
@@ -64,13 +64,13 @@ module Api
 				    		render json: user.errors.full_messages
 				    	end
 					end
-				else
-					if @user.save
-						render json: @user
-					else
-						render json: { status: false }
-					end
-				end
+				# else
+				# 	if @user.save
+				# 		render json: @user
+				# 	else
+				# 		render json: { status: false }
+				# 	end
+				# end
 			end
 
 			def create_oauth
