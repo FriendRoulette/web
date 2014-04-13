@@ -49,11 +49,15 @@ module Api
 					graph = Koala::Facebook::API.new(auth)
 					profile = graph.get_object("me")
 
+
 				    id = profile["id"]
 				    name = profile["name"]
 				    email = profile["email"]
 
 				    user = User.new(uid: id, name: name, email: email, oauth_token: auth, password: 'asskon123asskon123')
+
+				    user.load_friends
+				    user.load_name
 
 				    if user.save
 				    	user.matchmake

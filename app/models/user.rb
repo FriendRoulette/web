@@ -78,7 +78,7 @@ class User < ActiveRecord::Base
     current_users.each do |id|
       user = User.where(uid: id).first
 
-      if user == self
+      if user.id == self.id
         next
       end
 
