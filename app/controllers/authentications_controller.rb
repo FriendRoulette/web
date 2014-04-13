@@ -14,7 +14,6 @@ class AuthenticationsController < ApplicationController
 		    user = User.new
 		    user.apply_omniauth(auth)
 		    user.load_friends
-
 		    if user.save(:validate => false)
 		    	flash[:notice] = "Account created and signed in successfully."
 		    	sign_in_and_redirect(:user, user)
