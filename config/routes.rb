@@ -22,7 +22,6 @@ Rails.application.routes.draw do
  		namespace :v1, path: '/' do
 	 		resources :user do
 	 			member do
-	 				post :create
 	 				get :friends
 	 			end
 
