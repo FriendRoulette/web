@@ -6,6 +6,7 @@ Rails.application.routes.draw do
  		resources :users do
  			member do
  				post :create
+ 				get :friends
  			end
 
  			collection do
@@ -15,7 +16,9 @@ Rails.application.routes.draw do
  	end
 
 	resources :users
- 	devise_for :users do
+	
+ 	devise_for :users, :skip => [:sessions]
+ 	as :user do
  		get "logout" => "devise/session#destroy"
  	end
 

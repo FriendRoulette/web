@@ -1,4 +1,4 @@
-class CreateApiAccounts < ActiveRecord::Migration
+class CreateAPIAccounts < ActiveRecord::Migration
   def change
     create_table :api_accounts do |t|
       t.string :username
