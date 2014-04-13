@@ -48,7 +48,24 @@ module Api
 				if @user.save
 					render json: @user
 				else
-					render json: { status: false }
+					#render json: { status: false }
+					if !existing.nil?
+						p "FIRST"
+						render json: existing
+					else
+						p "ELSE"
+						graph = Koala::Facebook::API.new(token)
+						profile = graph.get_object("me")
+					    id = profile["id"]
+					    name = profile["name"]
+					    email = profile["email"]
+					    user = User.new(uid: id, name: name, email: email, oauth_token: auth)
+					    if user.save
+					    	render json: user
+					    else
+					    	render json: user.errors.full_messages
+					    end
+					end
 				end
 			end
 
