@@ -1,6 +1,8 @@
 module Api
 	module V1
 		class UserController < ApplicationController
+			skip_before_filter  :verify_authenticity_token
+			
 			def index
 				@user = User.all
 
