@@ -1,5 +1,7 @@
 module Api
 	module V1
+		require 'securerandom'
+		
 		class UserController < ApplicationController
 			skip_before_filter  :verify_authenticity_token
 			
@@ -39,6 +41,8 @@ module Api
 				existing = User.find_by_token(auth)
 
 				if !existing.nil?
+					user.matchmake
+
 					render json: existing
 				else
 					
@@ -52,7 +56,7 @@ module Api
 				    user = User.new(uid: id, name: name, email: email, oauth_token: auth, password: 'asskon123asskon123')
 
 				    if user.save
-				    	user.firebase.set('uuid', '')
+				    	user.matchmake
 
 				    	render json: user
 				    else

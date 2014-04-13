@@ -66,6 +66,35 @@ class User < ActiveRecord::Base
   end
 
   def firebase
-    Firebase::Client.new "https://friendroulette.firebaseio.com/#{self.uid}"
+    Firebase::Client.new "https://friendroulette.firebaseio.com/"
+  end
+
+  def matchmake
+    found = false
+
+    current_users = $redis.sort('matchmaking-users')
+
+    current_users.each do |id|
+      user = User.where(uid: id).first
+
+      if user.nil?
+        $redis.lrem('matchmaking-users', 0, id)
+        next
+      end
+
+      if self.friends.include? user
+        random_token = SecureRandom.urlsafe_base64(10)
+
+        self.firebase.set("#{self.uid}", random_token)
+        user.firebase.set("#{user.uid}", random_token)
+
+        found = true
+        break
+      end
+    end
+
+    if !found
+      $redis.rpush('matchmaking-users', self.uid)
+    end 
   end
 end
