@@ -24,12 +24,11 @@ Rails.application.routes.draw do
 	 			member do
 	 				post :create
 	 				get :friends
-					post :create_oauth
 	 			end
 
 	 			collection do
 	  				get :find_token
-					post :create_oauth
+					post :oauth_create
 	  			end
 	 		end
 	 	end

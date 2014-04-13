@@ -35,65 +35,31 @@ module Api
 
 			def create
 				@user = User.new(user_params)
-				p "IN USER CREATE"
-				p @user
-				p @user_params
 
-				p "params"
-				p params
-				auth = params['oauth']
-				p "auth"
-				p auth
-				existing = User.find_by_token(auth)
-				p "existing"
-				p existing
-
-				#if @user.save
-				if (1 == 2)
-					p "USER IS BEing saved"
+				if @user.save
 					render json: @user
 				else
-					#render json: { status: false }
-					if !existing.nil?
-						p "FIRST"
-						render json: existing
-					else
-						p "ELSE"
-						graph = Koala::Facebook::API.new(auth)
-						profile = graph.get_object("me")
-					    id = profile["id"]
-					    name = profile["name"]
-					    email = profile["email"]
-					    user = User.new(uid: id, name: name, email: email, oauth_token: auth, password: "asskon123")
-					    if user.save
-					    	render json: user
-					    else
-					    	render json: user.errors.full_messages
-					    end
-					end
+					render json: { status: false }
 				end
 			end
 
-			def create_oauth
-				p "Create Oauth"
+			def oauth_create
 				auth = params['oauth']
-				p "auth"
-				p auth
+
 				existing = User.find_by_token(auth)
-				p "existing"
-				p existing
+
 				if !existing.nil?
 					render json: existing
 				else
 					
-					graph = Koala::Facebook::API.new(token)
+					graph = Koala::Facebook::API.new(auth)
 					profile = graph.get_object("me")
 
 				    id = profile["id"]
 				    name = profile["name"]
 				    email = profile["email"]
 
-				    user = User.new(uid: id, name: name, email: email, oauth_token: auth)
+				    user = User.new(uid: id, name: name, email: email, oauth_token: auth, password: 'asskon123asskon123')
 
 				    if user.save
 				    	render json: user
@@ -102,6 +68,7 @@ module Api
 				    end
 				end
 			end
+
 
 			def update
 				@user = User.find(params[:id])
