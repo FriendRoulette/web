@@ -53,7 +53,7 @@ module Api
 			    name = profile["name"]
 			    email = profile["email"]
 
-			    user = User.new(uid: id, name: name, email: email, oauth_token: auth, provider: 'facebook')
+			    user = User.new(uid: id, name: name, email: email, oauth_token: auth)
 
 			    if user.save
 			    	render json: user

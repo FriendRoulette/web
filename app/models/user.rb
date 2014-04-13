@@ -57,6 +57,10 @@ class User < ActiveRecord::Base
       end
   end
 
+  def load_name
+    self.update_attribute(:name, graph.get_object("me")["name"])
+  end
+
   def graph
     Koala::Facebook::API.new(self.oauth_token)
   end
