@@ -28,4 +28,11 @@ class User < ActiveRecord::Base
     self.uid = authentication.uid
     self.oauth_token = authentication.token
   end
+
+  def load_friends
+  end
+
+  def graph
+    Koala::Facebook::API.new(self.oauth_token)
+  end
 end

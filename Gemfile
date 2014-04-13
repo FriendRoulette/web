@@ -21,6 +21,9 @@ gem 'jbuilder', '~> 2.0'
 
 gem 'rails_config'
 
+gem 'redis'
+gem 'redis-rails'
+
 group :development do
 	gem 'spring'
 	gem 'sqlite3'
