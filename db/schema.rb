@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140413045910) do
+ActiveRecord::Schema.define(version: 20140413051509) do
 
   create_table "authentications", force: true do |t|
     t.integer  "user_id"
@@ -22,9 +22,7 @@ ActiveRecord::Schema.define(version: 20140413045910) do
     t.datetime "updated_at"
   end
 
-  create_table "friendship_connections", id: false, force: true do |t|
-    t.integer "user_a_id", null: false
-    t.integer "user_b_id", null: false
+  create_table "friend_friends_tables", force: true do |t|
   end
 
   create_table "users", force: true do |t|
@@ -35,12 +33,12 @@ ActiveRecord::Schema.define(version: 20140413045910) do
     t.datetime "oauth_expires_at"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
+    t.string   "email",                  default: "",       null: false
+    t.string   "encrypted_password",     default: "asskon", null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
+    t.integer  "sign_in_count",          default: 0,        null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
