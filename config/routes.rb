@@ -6,8 +6,11 @@ Rails.application.routes.draw do
  		resources :users do
  			member do
  				post :create
- 				get :find_token
  			end
+
+ 			collection do
+  				get :find_token
+  			end
  		end
  	end
 
