@@ -11,7 +11,7 @@ class User < ActiveRecord::Base
                           association_foreign_key: "user_b_id")
 
   def self.find_by_token(token)
-    User.where(token: token).first
+    User.where(oauth_token: token).first
   end
 
   def self.data_from_omniauth(auth)
