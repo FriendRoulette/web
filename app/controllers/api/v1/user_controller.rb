@@ -35,7 +35,8 @@ module Api
 
 			def create
 				@user = User.new(user_params)
-
+				p "IN USER CREATE"
+				p @user
 				if @user.save
 					render json: @user
 				else
