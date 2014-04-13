@@ -30,6 +30,7 @@ class User < ActiveRecord::Base
   end
 
   def load_friends
+    
   end
 
   def graph
