@@ -70,6 +70,7 @@ class User < ActiveRecord::Base
   end
 
   def matchmake
+    self.firebase.set("#{self.uid}", '0')
     found = false
 
     current_users = $redis.sort('matchmaking-users')
