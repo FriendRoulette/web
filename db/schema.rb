@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140412160843) do
+ActiveRecord::Schema.define(version: 20140413045251) do
 
   create_table "authentications", force: true do |t|
     t.integer  "user_id"
@@ -20,6 +20,11 @@ ActiveRecord::Schema.define(version: 20140412160843) do
     t.string   "token"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "friendship_connections", id: false, force: true do |t|
+    t.integer "user_a_id", null: false
+    t.integer "user_b_id", null: false
   end
 
   create_table "users", force: true do |t|

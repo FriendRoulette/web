@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
   has_many :authentications, :dependent => :delete_all
   has_and_belongs_to_many(:friends,
                           class_name: 'User',
-                          join_table: 'friend_friends',
+                          join_table: 'friendship_connections',
                           foreign_key: "user_a_id",
                           association_foreign_key: "user_b_id")
 
