@@ -88,7 +88,7 @@ class User < ActiveRecord::Base
         self.firebase.set("#{self.uid}", random_token)
         user.firebase.set("#{user.uid}", random_token)
 
-        user.lrem('matchmaking-users', 0, user.uid)
+        $redis.lrem('matchmaking-users', 0, user.uid)
 
         found = true
         break
