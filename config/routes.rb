@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 		
 	 	devise_for :users
 	 	as :user do
-	 		delete "logout" => "devise/session#destroy"
+	 		delete "logout" => "devise/sessions#destroy"
 	 	end
 
 		match '/auth/:provider/callback', to: 'authentications#create', via: [:get, :post]
