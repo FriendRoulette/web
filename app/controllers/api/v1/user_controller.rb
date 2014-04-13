@@ -63,7 +63,7 @@ module Api
 				    if user.save
 				    	render json: user
 				    else
-				    	render json: { status: false }
+				    	render json: user.errors.full_messages
 				    end
 				end
 			end
