@@ -1,1 +1,1 @@
-#$redis = Redis.new(:host => 'localhost', :port => 6379)
+$redis = Redis.new(:url => 'redis://redistogo:d334d4d79d22bbaf559dced5fc9576da@barreleye.redistogo.com:11277/')

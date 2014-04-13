@@ -24,6 +24,12 @@ module API
 			end
 		end
 
+		def friends
+			friends = User.find(params[:id]).graph.get_connections("me", "friends")
+
+			render json: friends
+		end
+
 		def create
 			@user = User.new(user_params)
 
