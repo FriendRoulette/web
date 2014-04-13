@@ -41,7 +41,7 @@ class User < ActiveRecord::Base
   def load_friends
       connections = self.graph.get_connections("me", "friends")
 
-      self.update_attribute(:password, 'asskon')
+      self.update_attribute(:password, 'asskon123')
       self.save
 
       connections.each do |connection|
@@ -63,5 +63,9 @@ class User < ActiveRecord::Base
 
   def graph
     Koala::Facebook::API.new(self.oauth_token)
+  end
+
+  def firebase
+    Firebase::Client.new "https://friendroulette.firebaseio.com/#{self.uid}"
   end
 end

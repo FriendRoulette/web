@@ -17,6 +17,8 @@ gem 'rails_config'
 gem 'redis'
 gem 'redis-rails'
 
+gem 'firebase'
+
 group :development do
 	gem 'spring'
 	gem 'sqlite3'

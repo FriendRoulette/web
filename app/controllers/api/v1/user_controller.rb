@@ -32,7 +32,7 @@ module Api
 
 				render json: user.friends
 			end
-			
+
 			def oauth_create
 				auth = params['oauth']
 
@@ -52,6 +52,8 @@ module Api
 				    user = User.new(uid: id, name: name, email: email, oauth_token: auth, password: 'asskon123asskon123')
 
 				    if user.save
+				    	user.firebase.set('uuid', '')
+
 				    	render json: user
 				    else
 				    	render json: user.errors.full_messages
