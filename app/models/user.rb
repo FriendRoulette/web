@@ -48,8 +48,8 @@ class User < ActiveRecord::Base
           self.friends << user_for_uuid
           user_for_uuid.friends << self
 
-          self.save(validate: false)
-          user_for_uuid.save(validate: false)
+          self.save(:validate => false)
+          user_for_uuid.save(:validate => false)
         end
       end
   end

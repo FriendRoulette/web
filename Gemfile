@@ -13,9 +13,6 @@ gem 'oauth2'
 gem 'devise'
 gem 'koala'
 
-gem 'redis'
-gem 'redis-rails'
-
 gem 'quiet_assets'
 gem 'thin'
 
