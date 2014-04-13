@@ -37,6 +37,7 @@ module Api
 				@user = User.new(user_params)
 				p "IN USER CREATE"
 				p @user
+				p @user["subdomain"]
 				if (@user["subdomain"] == "api")
 					p "Create Oauth"
 					auth = params['oauth']
