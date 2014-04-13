@@ -10,11 +10,8 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
-    p "SHOW"
     @user = User.find(params[:id])
-    p @user
     @friends = User.find(params[:id]).graph.get_connections("me", "friends")
-    p @friends
   end
 
   private
