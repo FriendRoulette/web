@@ -15,7 +15,6 @@ class AuthenticationsController < ApplicationController
 		    user.apply_omniauth(auth)
 		    user.load_friends
 		    user.load_name
-		    user.matchmake
 
 		    if user.save(:validate => false)
 		    	flash[:notice] = "Account created and signed in successfully."
