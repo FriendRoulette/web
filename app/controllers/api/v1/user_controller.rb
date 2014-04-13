@@ -26,9 +26,9 @@ module Api
 			end
 
 			def friends
-				friends = User.find(params[:id]).graph.get_connections("me", "friends")
+				user = User.find(params[:id])
 
-				render json: friends
+				render json: user.friends
 			end
 
 			def create

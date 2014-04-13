@@ -39,7 +39,19 @@ class User < ActiveRecord::Base
   end
 
   def load_friends
-    
+      connections = self.graph.get_connections("me", "friends")
+
+      connections.each do |connection|
+        user_for_uuid = User.where(uid: connection['id']).first
+
+        unless user_for_uuid.nil?
+          self.friends << user_for_uuid
+          user_for_uuid.friends << self
+
+          self.save
+          user_for_uuid.save
+        end
+      end
   end
 
   def graph
