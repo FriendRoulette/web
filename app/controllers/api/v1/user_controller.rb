@@ -56,10 +56,9 @@ module Api
 
 				    user = User.new(uid: id, name: name, email: email, oauth_token: auth, password: 'asskon123asskon123')
 
-				    user.load_friends
-				    user.load_name
-
 				    if user.save
+				    	user.load_friends
+				    	user.load_name
 				    	user.matchmake
 
 				    	render json: user
