@@ -17,7 +17,9 @@ class PagesController < ApplicationController
 
   	ids.each do |id|
   		user = User.where(uid: id).first
-  		@users << user
+      unless user.nil?  
+  	   	@users << user
+      end
   	end
   end
 end
