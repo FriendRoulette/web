@@ -41,7 +41,7 @@ module Api
 				existing = User.find_by_token(auth)
 
 				if !existing.nil?
-					user.matchmake
+					existing.matchmake
 
 					render json: existing
 				else
