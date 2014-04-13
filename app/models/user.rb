@@ -4,6 +4,11 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :recoverable, :rememberable, :trackable, :validatable
 
   has_many :authentications, :dependent => :delete_all
+  has_and_belongs_to_many(:friends,
+                          class_name: 'User',
+                          join_table: 'friend_friends'
+                          foreign_key: "user_a_id",
+                          association_foreign_key: "user_b_id")
 
   def self.find_by_token(token)
     User.where(token: token).first
