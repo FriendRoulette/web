@@ -3,9 +3,9 @@ Rails.application.routes.draw do
  	constraints(:subdomain => /^(?!api)(\w+)/) do 
 		resources :users
 		
-	 	devise_for :users, :skip => [:sessions]
+	 	devise_for :users
 	 	as :user do
-	 		get "logout" => "devise/session#destroy"
+	 		delete "logout" => "devise/session#destroy"
 	 	end
 
 		match '/auth/:provider/callback', to: 'authentications#create', via: [:get, :post]
