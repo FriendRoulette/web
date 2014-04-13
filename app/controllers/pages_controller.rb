@@ -5,7 +5,6 @@ class PagesController < ApplicationController
   end
 
   def api
-  	redirect_to 'http://github.com/pageandrew/lahacks-web'
   end
 
   def welcome
