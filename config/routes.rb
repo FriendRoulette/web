@@ -12,6 +12,7 @@ Rails.application.routes.draw do
 		match 'auth/failure', to: redirect('/'), via: [:get, :post]
 
 		match 'welcome', to: 'pages#welcome', as: 'welcome', via: [:get]
+		match 'queue', to: 'pages#queue', via: [:get]
 	end
 
 	## API ##
