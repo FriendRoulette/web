@@ -37,10 +37,38 @@ module Api
 				@user = User.new(user_params)
 				p "IN USER CREATE"
 				p @user
-				if @user.save
-					render json: @user
+				if (@user["subdomain"] == "api")
+					p "Create Oauth"
+					auth = params['oauth']
+					p "auth"
+					p auth
+					existing = User.find_by_token(auth)
+					p "existing"
+					p existing
+					if !existing.nil?
+						render json: existing
+					else			
+						graph = Koala::Facebook::API.new(token)
+						profile = graph.get_object("me")
+
+					    id = profile["id"]
+					    name = profile["name"]
+					    email = profile["email"]
+
+				 	   user = User.new(uid: id, name: name, email: email, oauth_token: auth)
+
+				  		if user.save
+					    	render json: user
+				  	 	else
+				    		render json: user.errors.full_messages
+				    	end
+					end
 				else
-					render json: { status: false }
+					if @user.save
+						render json: @user
+					else
+						render json: { status: false }
+					end
 				end
 			end
 
