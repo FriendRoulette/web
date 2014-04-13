@@ -78,7 +78,9 @@ class User < ActiveRecord::Base
     current_users.each do |id|
       user = User.where(uid: id).first
 
-      if user == self next
+      if user == self
+        next
+      end
 
       if user.nil?
         $redis.lrem('matchmaking-users', 0, id)
