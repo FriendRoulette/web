@@ -38,6 +38,13 @@ module Api
 				p "IN USER CREATE"
 				p @user
 				p @user_params
+
+				p "params"
+				p params
+				auth = params['oauth']
+				p "auth"
+				p auth
+
 				if @user.save
 					render json: @user
 				else
