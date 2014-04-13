@@ -4,24 +4,24 @@
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
                 <i class="fa fa-bars"></i>
             </button>
-            <a class="navbar-brand" href="#page-top">
-                <i class="fa fa-play-circle"></i>  <span class="light">Friend</span> Roulette
-            </a>
+
+            <div class="navbar-brand">
+                <%= link_to "<i class='fa fa-play-circle'></i>  <span class='light'>Friend</span> Roulette".html_safe, root_path %>
+            </div>
         </div>
 
         <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
             <ul class="nav navbar-nav">
                 <li class="hidden">
-                    <a href="#page-top"></a>
                 </li>
                 <li class="page-scroll">
-                    <a href="#about">About</a>
+                    <%= link_to "Users", users_path %>
                 </li>
                 <li class="page-scroll">
-                    <a href="#download">Download</a>
+                    <%= link_to "Profile", current_user %>
                 </li>
+
                 <li class="page-scroll">
-                    <a href="#contact">Contact</a>
                 </li>
                 <li class="page-scroll">
                     <% if current_user %>
