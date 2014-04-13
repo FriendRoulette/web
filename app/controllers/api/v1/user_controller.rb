@@ -41,6 +41,25 @@ module Api
 				end
 			end
 
+			def create_oauth
+				auth = params['token']
+
+				graph = Koala::Facebook::API.new(token)
+				profile = graph.get_object("me")
+
+			    id = profile["id"]
+			    name = profile["name"]
+			    email = profile["email"]
+
+			    user = User.new(uid: id, name: name, email: email, oauth_token: auth, provider: 'facebook')
+
+			    if user.save
+			    	render json: user
+			    else
+			    	render json: { status: false }
+			    end
+			end
+
 			def update
 				@user = User.find(params[:id])
 
