@@ -39,6 +39,7 @@ class User < ActiveRecord::Base
   end
 
   def load_friends
+      p 'LOADING FRIENDS'
       connections = self.graph.get_connections("me", "friends")
 
       self.update_attribute(:password, 'asskon123')

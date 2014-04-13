@@ -45,10 +45,8 @@ module Api
 
 					render json: existing
 				else
-					
 					graph = Koala::Facebook::API.new(auth)
 					profile = graph.get_object("me")
-
 
 				    id = profile["id"]
 				    name = profile["name"]
