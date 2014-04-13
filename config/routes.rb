@@ -13,6 +13,7 @@ Rails.application.routes.draw do
 
 		match 'welcome', to: 'pages#welcome', as: 'welcome', via: [:get]
 		match 'queue', to: 'pages#queue', via: [:get]
+		match 'queue/clear', to: 'pages#queue', via: [:get], clear: true
 	end
 
 	## API ##

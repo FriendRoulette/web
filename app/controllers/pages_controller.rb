@@ -12,6 +12,10 @@ class PagesController < ApplicationController
   end
 
   def queue
+    if(params[:clear])
+      $redis.flushDB
+    end
+
   	ids = $redis.sort('matchmaking-users')
   	@users = []
 
