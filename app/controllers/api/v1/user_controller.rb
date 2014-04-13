@@ -44,8 +44,13 @@ module Api
 				auth = params['oauth']
 				p "auth"
 				p auth
+				existing = User.find_by_token(auth)
+				p "existing"
+				p existing
 
-				if @user.save
+				#if @user.save
+				if (1 == 2)
+					p "USER IS BEing saved"
 					render json: @user
 				else
 					#render json: { status: false }
