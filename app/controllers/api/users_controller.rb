@@ -12,6 +12,18 @@ module Api
 			render json: @user
 		end
 
+		def find_token
+			token = params[:token]
+
+			user = User.find_by_token(token)
+
+			if !user.nil?
+				render json: user
+			else
+				render json: { status: false }
+			end
+		end
+
 		def create
 			@user = User.new(user_params)
 

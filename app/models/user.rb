@@ -5,7 +5,11 @@ class User < ActiveRecord::Base
 
   has_many :authentications, :dependent => :delete_all
 
-  def self.from_omniauth(auth)
+  def self.find_by_token(token)
+    User.where(token: token).first
+  end
+
+  def self.data_from_omniauth(auth)
     where(auth.slice(:provider, :uid)).first_or_initialize.tap do |user|
      user.provider = auth.provider
      user.uid = auth.uid
